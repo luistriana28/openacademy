@@ -1,40 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<openerp>
-    <data>
-        <record model="ir.ui.view" id="course_form_view">
-            <field name="name">course.form</field>
-            <field name="model">openacademy.course</field>
-            <field name="arch" type="xml">
-                <form string="Course Form">
-                    <sheet>
-                        <group>
-                            <field name="name"/>
-                            <field name="description"/>
-                        </group>
-                        <notebook>
-                            <page string="Descripcion">
-                                <field name="description"/>
-                            </page>
-                            <page string="Acerca de">
-                                Este es un ejemplo de Notebooks
-                            </page>
-                        </notebook>
-                    </sheet>
-                </form>
-            </field>
-        </record>
-         <record model="ir.ui.view" id="course_search_view">
-            <field name="name">course.search</field>
-            <field name="model">openacademy.course</field>
-            <field name="arch" type="xml">
-                <search>
-                    <field name="name"/>
-                    <field name="description"/>
-                </search>
-            </field>
-        </record>
-    </data>
-    <data>
+<odoo>
+
         <!-- window action -->
         <!--
             The following tag is an action definition for a "window action",
@@ -43,10 +9,9 @@
         <record model="ir.actions.act_window" id="course_list_action">
             <field name="name">Courses</field>
             <field name="res_model">openacademy.course</field>
-            <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
             <field name="help" type="html">
-                <p class="oe_view_nocontent_create">Create the first course
+                <p class="o_view_nocontent_smiling_face">Create the first course
                 </p>
             </field>
         </record>
@@ -62,19 +27,72 @@
              action course_list_action -->
         <menuitem id="courses_menu" name="Courses" parent="openacademy_menu"
                   action="course_list_action"/>
-                  
         <!-- Full id location:
              action="openacademy.course_list_action"
              It is not required when it is the same module -->
-                <!-- session form view -->
+
+        <record model="ir.ui.view" id="course_form_view">
+            <field name="name">course.form</field>
+            <field name="model">openacademy.course</field>
+            <field name="arch" type="xml">
+                <form string="Formato de Curso">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="responsible_id"/>
+                        </group>
+                        <notebook>
+                            <page string="Description">
+                                <field name="description"/>
+                                <field name="phone"/>
+                            </page>
+                            <page string="About">
+                                Entrenamiento de Acuario ejemplo
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="course_search_view">
+            <field name="name">course.search</field>
+            <field name="model">openacademy.course</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="description"/>
+                    <field name="phone"/>
+                </search>
+            </field>
+        </record>
+
+        <!-- override the automatically generated list view for courses -->
+        <record model="ir.ui.view" id="course_tree_view">
+            <field name="name">course.tree</field>
+            <field name="model">openacademy.course</field>
+            <field name="arch" type="xml">
+                <tree string="Course Tree">
+                    <field name="name"/>
+                    <field name="phone"/>
+                    <field name="responsible_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- session form view -->
         <record model="ir.ui.view" id="session_form_view">
             <field name="name">session.form</field>
             <field name="model">openacademy.session</field>
             <field name="arch" type="xml">
                 <form string="Session Form">
                     <sheet>
-                        <group>
-                            <field name="name"/>
+                        <group string="General">
+                                <field name="course_id"/>
+                                <field name="name"/>
+                                <field name="instructor_id"/>
+                        </group>
+                        <group string="Schedule">
                             <field name="start_date"/>
                             <field name="duration"/>
                             <field name="seats"/>
@@ -83,20 +101,27 @@
                 </form>
             </field>
         </record>
+        
+         <!-- session tree/list view -->
+        <record model="ir.ui.view" id="session_tree_view">
+            <field name="name">session.tree</field>
+            <field name="model">openacademy.session</field>
+            <field name="arch" type="xml">
+                <tree string="Session Tree">
+                    <field name="name"/>
+                    <field name="course_id"/>
+                </tree>
+            </field>
+        </record>
 
         <record model="ir.actions.act_window" id="session_list_action">
             <field name="name">Sessions</field>
             <field name="res_model">openacademy.session</field>
-            <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
         </record>
 
         <menuitem id="session_menu" name="Sessions"
                   parent="openacademy_menu"
                   action="session_list_action"/>
-    </data>
-</openerp>
 
-        <!-- window action -->
-        <!--
-            The following tag is an action definition for a "window action", -->
+</odoo>

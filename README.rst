@@ -2,8 +2,8 @@
    :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
    :alt: License: AGPL-3
 
-.. image:: https://travis-ci.org/xluiisx/openacademy.svg?branch=master
-    :target: https://travis-ci.org/xluiisx/openacademy
+.. image:: https://travis-ci.org/luistriana28/openacademy.svg?branch=master
+    :target: https://travis-ci.org/luistriana28/openacademy
 
 ==============
 Addons Odoo

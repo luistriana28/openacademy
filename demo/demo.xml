@@ -1,0 +1,16 @@
+<odoo>
+
+        <record model="openacademy.course" id="curso0">
+            <field name="name">Matematicas</field>
+            <field name="description">Curso de matematicas para dummy
+            </field>
+        </record>
+        <record model="openacademy.course" id="curso1">
+            <field name="name">Tijeritas</field>
+            <!-- no description for this one -->
+        </record>
+        <record model="openacademy.course" id="curso2">
+            <field name="name">Plastilina 1</field>
+            <field name="description">Aprender Manualidades</field>
+        </record>
+</odoo>
