@@ -17,10 +17,10 @@
         </record>
 
         <!-- top level menu: no parent -->
-        <menuitem id="main_openacademy_menu" name="Open Academy"/>
+        <menuitem id="main_openacademy_menu" name="OpenAcademy"/>
         <!-- A first level in the left side menu is needed
              before using action= attribute -->
-        <menuitem id="openacademy_menu" name="Open Academy"
+        <menuitem id="openacademy_menu" name="OpenAcademy"
                   parent="main_openacademy_menu"/>
         <!-- the following menuitem should appear *after*
              its parent openacademy_menu and *after* its
@@ -63,6 +63,7 @@
                     <field name="name"/>
                     <field name="description"/>
                     <field name="phone"/>
+                    <field name="responsible_id"/>
                 </search>
             </field>
         </record>
