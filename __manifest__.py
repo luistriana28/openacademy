@@ -1,5 +1,5 @@
 {
-    'name': "Open Academy por Luis Triana",
+    'name': "Openacademy module",
 
     'summary': """Maneja Entrenamientos""",
 
