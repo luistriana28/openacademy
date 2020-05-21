@@ -20,7 +20,7 @@
         <menuitem id="main_openacademy_menu" name="OpenAcademy"/>
         <!-- A first level in the left side menu is needed
              before using action= attribute -->
-        <menuitem id="openacademy_menu" name="OpenAcademy"
+        <menuitem id="openacademy_menu" name="Opciones"
                   parent="main_openacademy_menu"/>
         <!-- the following menuitem should appear *after*
              its parent openacademy_menu and *after* its
@@ -40,11 +40,20 @@
                         <group>
                             <field name="name"/>
                             <field name="responsible_id"/>
+                            <field name="phone"/>
                         </group>
                         <notebook>
                             <page string="Description">
                                 <field name="description"/>
                                 <field name="phone"/>
+                            </page>
+                            <page string="Sessions">
+                                <field name="session_ids">
+                                    <tree string="Registered sessions">
+                                        <field name="name"/>
+                                        <field name="instructor_id"/>
+                                    </tree>
+                                </field>
                             </page>
                             <page string="About">
                                 Entrenamiento de Acuario ejemplo
@@ -98,6 +107,8 @@
                             <field name="duration"/>
                             <field name="seats"/>
                         </group>
+                        <label for="attendee_ids"/>
+                        <field name="attendee_ids"/>
                     </sheet>
                 </form>
             </field>
