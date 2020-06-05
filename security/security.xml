@@ -2,10 +2,11 @@
     <record id="group_manager" model="res.groups">
         <field name="name">OpenAcademy / Manager</field>
     </record>
-
-     <record id="group_student" model="res.groups">
+    
+    <record id="group_student" model="res.groups">
         <field name="name">OpenAcademy / Student</field>
     </record>
+
 
    <record id="only_responsible_can_modify" model="ir.rule">
             <field name="name">Only Responsible can modify Course</field>
@@ -16,8 +17,8 @@
             <field name="perm_create" eval="0"/>
             <field name="perm_unlink" eval="1"/>
             <field name="domain_force">
-                ['|', ('responsible_id','=',False),
-                      ('responsible_id','=',user.id)]
+                ['|', ('responsible_id', '=', False),
+                      ('responsible_id', '=', user.id)]
             </field>
     </record>
 </odoo>

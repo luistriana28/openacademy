@@ -1,6 +1,6 @@
 
 from datetime import timedelta
-from odoo import api, fields, models
+from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
 
 
@@ -8,7 +8,7 @@ class Course(models.Model):
     _name = 'openacademy.course'
     _description = "OpenAcademy Courses"
 
-    name = fields.Char(string="Title", required=True)
+    name = fields.Char(string=_("Title"), required=True)
     description = fields.Text()
     phone = fields.Text(string="Telefono")
     responsible_id = fields.Many2one(
@@ -29,11 +29,11 @@ class Course(models.Model):
         default = dict(default or {})
 
         copied_count = self.search_count(
-            [('name', '=like', u"Copy of {}%".format(self.name))])
+            [('name', '=like', _("Copy of {}%").format(self.name))])
         if not copied_count:
-            new_name = u"Copy of {}".format(self.name)
+            new_name = _("Copy of {}").format(self.name)
         else:
-            new_name = u"Copy of {} ({})".format(self.name, copied_count)
+            new_name = _("Copy of {} ({})").format(self.name, copied_count)
 
         default['name'] = new_name
         return super(Course, self).copy(default)
@@ -86,9 +86,9 @@ class Session(models.Model):
         if self.seats < 0:
             return {
                 'warning': {
-                    'title': "Incorrect 'seats' value",
-                    'message': ("The number of available"
-                                " seats may not be negative"),
+                    'title': _("Incorrect 'seats' value"),
+                    'message': _("The number of available"
+                                 " seats may not be negative"),
                 },
             }
         if self.seats < len(self.attendee_ids):
@@ -131,4 +131,4 @@ class Session(models.Model):
         for record in self:
             if record.instructor_id in record.attendee_ids:
                 raise ValidationError(
-                    "A session's instructor can't be an attendee")
+                    _("A session's instructor can't be an attendee"))
