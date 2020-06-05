@@ -2,6 +2,7 @@
     <record id="group_manager" model="res.groups">
         <field name="name">OpenAcademy / Manager</field>
     </record>
+<<<<<<< HEAD
     
     <record id="group_student" model="res.groups">
         <field name="name">OpenAcademy / Student</field>
@@ -20,5 +21,9 @@
                 ['|', ('responsible_id', '=', False),
                       ('responsible_id', '=', user.id)]
             </field>
+=======
+    <record id="group_user" model="res.groups">
+        <field name="name">OpenAcademy / User</field>
+>>>>>>> b77a8a1c5064124a3c760f3dc9c0d2c0ecd1f97e
     </record>
 </odoo>
